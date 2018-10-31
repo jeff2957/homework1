@@ -1,0 +1,25 @@
+1.Every cryptographic hash function is a hash function. But not every hash function is a cryptographic hash. A cryptographic hash function aims to guarantee a number of security properties, but Non cryptographic hash functions just try to avoid collisions for non malicious input.
+
+2. (a)
+code: 
+const privKey = wallet.getPrivateKey();
+console.log("privKey:", privKey);
+console.log(privKey.toString('hex'));
+
+ANS:
+privKey: <Buffer 37 f2 d5 d8 bb d0 d2 6e 5f db 31 cc a4 1d 1e 91 4b a1 e3 2a 5d f8 01 13 8a 4d bd d4 0c 8d cb 6a>
+
+37f2d5d8bbd0d26e5fdb31cca41d1e914ba1e32a5df801138a4dbdd40c8dcb6a
+
+2. (b)
+const createKeccakHash = require("keccak");
+const address = createKeccakHash("keccak256").update(pubKey).digest().slice(-20);
+console.log("address from pubKey", "0x"+ address.toString('hex'));
+
+2. (c)
+var key = Buffer.from('efca4cdd31923b50f4214af5d2ae10e7ac45a5019e9431cc195482d707485378', 'hex');
+var walletA = Wallet.fromPrivateKey(key);
+console.log(wallet.toV3String('password', "nccu"));
+
+
+https://github.com/jeff2957/Homework-1.git
